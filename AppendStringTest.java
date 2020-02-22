@@ -10,7 +10,7 @@ public class AppendStringTest{
 		}
 
 		long endTime = System.currentTimeMillis();
-		System.out.println("exeu time: " + (endTime - beginTime));
+		System.out.println("plus time cost: " + (endTime - beginTime));
 
 		StringBuilder builder = new StringBuilder("");
 		beginTime = System.currentTimeMillis();
@@ -19,6 +19,6 @@ public class AppendStringTest{
 		}
 
 		endTime = System.currentTimeMillis();
-		System.out.println("exeu time: " + (endTime - beginTime));
+		System.out.println("string builder time cost: " + (endTime - beginTime));
 	}
 }

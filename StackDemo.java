@@ -27,7 +27,7 @@ public class StackDemo {
         try {
             showpop(st);
         } catch (EmptyStackException e) {
-            System.out.println("empty stack");
+            System.out.println("stack is empty");
         }
     }
 }

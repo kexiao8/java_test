@@ -6,7 +6,6 @@ class GCBase{
 	}
 
 	protected void finalize(){
-
 		System.out.println(name + " destroyed!");
 	}
 }
