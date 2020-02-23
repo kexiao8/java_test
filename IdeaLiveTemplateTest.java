@@ -4,7 +4,9 @@ import java.util.List;
 
 /**
  * Created by tommyxiao on 2/23/20 11:36
- * how to use idea live template
+ * demonstrate how to use idea live template
+ * test environment：Mac OS
+ * Replace Key Cmd with Win when test on Windows
  */
 public class IdeaLiveTemplateTest {
     //psfi
