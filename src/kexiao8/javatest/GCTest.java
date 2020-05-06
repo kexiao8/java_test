@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 class GCBase{
 	private String name;
 	public GCBase(String name){

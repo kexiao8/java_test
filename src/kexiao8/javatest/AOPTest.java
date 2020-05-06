@@ -1,10 +1,9 @@
+package kexiao8.javatest;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-import com.sun.corba.se.spi.orbutil.proxy.InvocationHandlerFactory;
-
-import org.omg.CORBA.portable.InvokeHandler;
 import java.util.Arrays;
 
 interface Calc{

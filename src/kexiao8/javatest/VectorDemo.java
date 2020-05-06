@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 import java.util.*;
 
 public class VectorDemo {

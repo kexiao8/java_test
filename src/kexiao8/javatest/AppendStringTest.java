@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 public class AppendStringTest{
 	public static void main(String[] args){
 

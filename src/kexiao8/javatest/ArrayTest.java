@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 public class ArrayTest{
 	public static void main(String[] args){
 		int[] scores = new int[10];

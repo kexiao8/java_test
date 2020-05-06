@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 public class GenericMethodTest {
 
     public static <E> void printArray(E[] inputArray) {

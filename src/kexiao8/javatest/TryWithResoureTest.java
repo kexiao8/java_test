@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 import com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_OUTPeer;
 
 import java.io.BufferedReader;

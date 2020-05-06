@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 public class TwoThreadGetNameTest extends Thread {
 
     public void run() {

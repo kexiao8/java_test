@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 public class CommandLineArg{
 	public static void main(String[] args){
 		System.out.print("Input paras:");

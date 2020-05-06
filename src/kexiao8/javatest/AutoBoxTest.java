@@ -1,3 +1,5 @@
+package kexiao8.javatest;
+
 public class AutoBoxTest {
 	public static void main(String[] args) {
 		Integer i1 = 200;
