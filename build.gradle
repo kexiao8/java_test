@@ -1,0 +1,91 @@
+
+plugins {
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+// Apply the java plugin to add support for Java
+apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+
+    mavenLocal()
+    mavenCentral()
+}
+
+//def spring_version="4.3.16.RELEASE"
+//List spring =[
+//        "org.springframework:spring-core:$spring_version",
+//        "org.springframework:spring-beans:$spring_version",
+//        "org.springframework:spring-context:$spring_version",
+//        "org.springframework:spring-tx:$spring_version",
+//        "org.springframework:spring-jdbc:$spring_version",
+//        "org.springframework:spring-test:$spring_version"
+//]
+
+def cglib = [
+        "cglib:cglib:3.2.5",
+]
+
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    compile cglib
+    runtime cglib
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/'
+        }
+        resources  {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+//扩展clean task，除了build目录，把dist也删除
+clean.doFirst{
+    delete 'dist'
+    delete 'logs'
+}
+
+jar {
+    destinationDir file('dist/apps')
+    archiveName project.name + '.jar'
+    exclude '**/*.xml'
+    exclude '**/*.properties'
+
+    doLast {
+        copy {
+            from file('src/main/resources/')
+            into 'dist/conf'
+        }
+        copy {
+            from configurations.runtime
+            into 'dist/lib'
+        }
+        copy {
+            from file('.').listFiles().findAll{File f -> (f.name.endsWith('.sh') || f.name.endsWith('.env'))}
+            into 'dist'
+        }
+    }
+}
