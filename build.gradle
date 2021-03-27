@@ -25,15 +25,20 @@ repositories {
     mavenCentral()
 }
 
-//def spring_version="4.3.16.RELEASE"
-//List spring =[
+def spring_version="5.2.0.RELEASE"
+List spring =[
 //        "org.springframework:spring-core:$spring_version",
 //        "org.springframework:spring-beans:$spring_version",
 //        "org.springframework:spring-context:$spring_version",
 //        "org.springframework:spring-tx:$spring_version",
 //        "org.springframework:spring-jdbc:$spring_version",
 //        "org.springframework:spring-test:$spring_version"
-//]
+            "org.springframework:spring-test:$spring_version"
+]
+
+def junit = [
+        'junit:junit:4.13'
+]
 
 def cglib = [
         "cglib:cglib:3.2.5",
@@ -42,13 +47,14 @@ def cglib = [
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    compile cglib
-    runtime cglib
+    compile cglib,spring,junit
+    runtime cglib,spring,junit
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+
 }
 
 sourceSets {
@@ -66,26 +72,4 @@ sourceSets {
 clean.doFirst{
     delete 'dist'
     delete 'logs'
-}
-
-jar {
-    destinationDir file('dist/apps')
-    archiveName project.name + '.jar'
-    exclude '**/*.xml'
-    exclude '**/*.properties'
-
-    doLast {
-        copy {
-            from file('src/main/resources/')
-            into 'dist/conf'
-        }
-        copy {
-            from configurations.runtime
-            into 'dist/lib'
-        }
-        copy {
-            from file('.').listFiles().findAll{File f -> (f.name.endsWith('.sh') || f.name.endsWith('.env'))}
-            into 'dist'
-        }
-    }
 }

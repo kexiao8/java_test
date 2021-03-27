@@ -1,4 +1,4 @@
-package kexiao8.javatest;
+package kexiao8.javatest.springtest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
