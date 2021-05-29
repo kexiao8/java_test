@@ -6,7 +6,7 @@ public class AppendStringTest{
 		String text = "";
 
 		long beginTime = System.currentTimeMillis();
-		int times = 10000;
+		int times = 200000;
 		for (int i = 0; i < times; i++){
 			text = text +i;
 		}
@@ -22,5 +22,6 @@ public class AppendStringTest{
 
 		endTime = System.currentTimeMillis();
 		System.out.println("string builder time cost: " + (endTime - beginTime));
+		//on macbook pro 2013 i7 16G, cost is:43461 vs 10
 	}
 }
